@@ -16,12 +16,12 @@ locals {
 
 # Create F5 BIG-IP VMs
 resource "google_compute_instance" "f5vm" {
-  name           = "${var.prefix}-${var.host_name}-${var.suffix}"
+  name           = var.host_name
   machine_type   = var.bigipMachineType
   zone           = var.zone
   can_ip_forward = true
 
-  tags = ["appfw-${var.prefix}", "mgmtfw-${var.prefix}"]
+  tags = var.tags
 
   boot_disk {
     initialize_params {
