@@ -1,7 +1,5 @@
 variable zone {}
-variable prefix {}
 variable host_name {}
-variable suffix {}
 variable tags { 
     type=list 
     default = []
