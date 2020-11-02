@@ -112,11 +112,11 @@ function error_exit {
 # Network Wait Function
 waitNetwork () {
 checks=0
-echo "Testing network: curl http://example.com"
+echo "Testing network: curl http://compute.googleapis.com"
 while [ $checks -lt 120 ]; do
-  STATUS=$(curl -s -k -I example.com | grep HTTP)
-  if [[ $STATUS == *"200"* ]]; then
-    echo "Got 200! VE is Ready!"
+  STATUS=$(curl -s -k -I compute.googleapis.com | grep HTTP)
+  if [[ $STATUS == *"404"* ]]; then
+    echo "Got a response! VE is Ready!"
     break
   fi
   echo "Status code: $STATUS  Not done yet..."
